@@ -8,21 +8,24 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FantasqueSansMono Nerd Font Mono:size=10" };
-static const char dmenufont[]       = "DejaVu Sans Mono:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_dmenu_sel_b[] = "#e59c19";
-static const char col_dmenu_sel_f[] = "#2d2d2d";
-static const char col_cyan[]        = "#005577";
+
+static const char *fonts[]    = { "FantasqueSansMono Nerd Font Mono:size=10" };
+static const char dmenufont[] = "DejaVu Sans Mono:size=10";
+
+static const char col_norm_bg[]      = "#1f1f1f";
+static const char col_norm_border[]  = "#1f1f1f";
+static const char col_norm_fg[]      = "#666666";
+static const char col_sel_bg[]       = "#1f1f1f";
+static const char col_sel_border[]   = "#1f1f1f";
+static const char col_sel_fg[]       = "#d39119";
+static const char col_dmenu_sel_bg[] = "#d39119";
+static const char col_dmenu_sel_fg[] = "#1f1f1f";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray2,  col_gray3  },
+	/*               fg           bg           border   */
+	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
+	[SchemeSel]  = { col_sel_fg,  col_sel_bg,  col_sel_border },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -39,8 +42,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
@@ -74,7 +76,7 @@ static const char *mutevol[] = { "sh", "-c", "/usr/bin/pamixer --toggle-mute && 
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_dmenu_sel_b, "-sf", col_dmenu_sel_f, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_dmenu_sel_bg, "-sf", col_dmenu_sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
