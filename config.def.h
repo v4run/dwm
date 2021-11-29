@@ -12,20 +12,20 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]    = { "FantasqueSansMono Nerd Font Mono:size=10" };
 static const char dmenufont[] = "DejaVu Sans Mono:size=10";
 
-static const char col_norm_bg[]      = "#1f1f1f";
-static const char col_norm_border[]  = "#1f1f1f";
-static const char col_norm_fg[]      = "#666666";
-static const char col_sel_bg[]       = "#1f1f1f";
-static const char col_sel_border[]   = "#1f1f1f";
-static const char col_sel_fg[]       = "#d39119";
-static const char col_dmenu_sel_bg[] = "#d39119";
-static const char col_dmenu_sel_fg[] = "#1f1f1f";
+static const char col_norm_bg[]      = "#1b1c22";
+static const char col_norm_border[]  = "#000000";
+static const char col_sel_border[]   = "#000000";
+static const char col_norm_fg[]      = "#a6a197";
+static const char col_sel_bg[]       = "#a6a197";
+static const char col_sel_fg[]       = "#1b1c22";
+static const char col_dmenu_sel_bg[] = "#a6a197";
+static const char col_dmenu_sel_fg[] = "#1b1c22";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
-	/*               fg           bg           border   */
-	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
-	[SchemeSel]  = { col_sel_fg,  col_sel_bg,  col_sel_border },
+	/*                      fg                       bg                 border   */
+	[SchemeNorm]     = { col_norm_fg,          col_norm_bg,          col_norm_border },
+	[SchemeSel]      = { col_sel_fg,           col_sel_bg,           col_sel_border  },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -42,7 +42,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
