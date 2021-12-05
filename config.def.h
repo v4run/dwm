@@ -76,7 +76,7 @@ static const char *mutevol[] = { "sh", "-c", "/usr/bin/pamixer --toggle-mute && 
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_dmenu_sel_bg, "-sf", col_dmenu_sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_dmenu_sel_bg, "-sf", col_dmenu_sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
