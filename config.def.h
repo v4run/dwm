@@ -14,7 +14,7 @@ static const char dmenufont[] = "DejaVu Sans Mono:size=10";
 
 static const char col_norm_bg[]      = "#1b1c22";
 static const char col_norm_border[]  = "#000000";
-static const char col_sel_border[]   = "#000000";
+static const char col_sel_border[]   = "#a6a197";
 static const char col_norm_fg[]      = "#a6a197";
 static const char col_sel_bg[]       = "#a6a197";
 static const char col_sel_fg[]       = "#1b1c22";
