@@ -9,8 +9,8 @@ static const unsigned int snap      = 1;        /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
-static const char *fonts[]    = { "FantasqueSansMono Nerd Font Mono:size=10" };
-static const char dmenufont[] = "DejaVu Sans Mono:size=10";
+static const char *fonts[]    = { "FantasqueSansMono Nerd Font Mono:size=12" };
+static const char dmenufont[] = "DejaVu Sans Mono:size=11";
 
 static const char col_norm_bg[]      = "#040404";
 static const char col_norm_border[]  = "#000000";
@@ -20,7 +20,7 @@ static const char col_sel_bg[]       = "#fedd80";
 static const char col_sel_fg[]       = "#040404";
 static const char col_dmenu_sel_bg[] = "#fedd80";
 static const char col_dmenu_sel_fg[] = "#040404";
-static const unsigned int baralpha = OPAQUE;
+static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
 static const char *colors[][3]      = {
 	/*                      fg                       bg                 border   */
