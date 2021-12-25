@@ -14,11 +14,11 @@ static const char dmenufont[] = "DejaVu Sans Mono:size=11";
 
 static const char col_norm_bg[]      = "#040404";
 static const char col_norm_border[]  = "#000000";
-static const char col_sel_border[]   = "#d69868";
-static const char col_norm_fg[]      = "#d69868";
-static const char col_sel_bg[]       = "#d69868";
+static const char col_sel_border[]   = "#000000";
+static const char col_norm_fg[]      = "#f8b758";
+static const char col_sel_bg[]       = "#f8b758";
 static const char col_sel_fg[]       = "#040404";
-static const char col_dmenu_sel_bg[] = "#d69868";
+static const char col_dmenu_sel_bg[] = "#f8b758";
 static const char col_dmenu_sel_fg[] = "#040404";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
@@ -78,6 +78,7 @@ static const char *mutevol[] = { "sh", "-c", "/usr/bin/pamixer --toggle-mute && 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_dmenu_sel_bg, "-sf", col_dmenu_sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *browsercmd[]  = { "chromium", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
@@ -86,6 +87,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol   } },
 	{ MODKEY,                       XK_p,                      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_b,                      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
 	{ MODKEY,                       XK_j,                      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,                      focusstack,     {.i = -1 } },
