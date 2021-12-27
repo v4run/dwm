@@ -51,6 +51,7 @@ static const Rule rules[] = {
 	{ "Chromium",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Signal",    NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Music",     NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "helvum",    NULL,       NULL,            0,       1,           -1 },
 };
 
 /* layout(s) */
