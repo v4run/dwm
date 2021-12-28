@@ -13,16 +13,16 @@ static const char *fonts[]    = { "monospace:size=10", "FantasqueSansMono Nerd F
 static const char dmenufont[] = "monospace:size=11";
 
 static const char col_norm_bg[]      = "#040404";
-static const char col_norm_border[]  = "#b9683e";
-static const char col_sel_border[]   = "#f8b758";
-static const char col_norm_fg[]      = "#f8b758";
+static const char col_norm_border[]  = "#161313";
+static const char col_sel_border[]   = "#615756";
+static const char col_norm_fg[]      = "#dce2c8";
 static const char col_sel_bg[]       = "#040404";
-static const char col_sel_fg[]       = "#f8b758";
+static const char col_sel_fg[]       = "#ec4e20";
 static const char col_dmenu_sel_bg[] = "#f8b758";
 static const char col_dmenu_sel_fg[] = "#040404";
 static const unsigned int baralpha = 0xd0;
-static const unsigned int borderalphanorm = 0x00;
-static const unsigned int borderalphasel = 0xff;
+static const unsigned int borderalphanorm = OPAQUE;
+static const unsigned int borderalphasel = OPAQUE;
 static const char *colors[][3]      = {
 	/*                      fg                       bg                 border   */
 	[SchemeNorm]     = { col_norm_fg,          col_norm_bg,          col_norm_border },
@@ -50,6 +50,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Chromium",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Signal",    NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Slack",     NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Music",     NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "helvum",    NULL,       NULL,            0,       1,           -1 },
 };
@@ -68,8 +69,8 @@ static const Layout layouts[] = {
 };
 
 /* Volume buttons */
-static const char *upvol[]   = { "sh", "-c", "/usr/bin/pamixer --increase 5 && kill -36 $(pidof goblocks)", NULL };
-static const char *downvol[] = { "sh", "-c", "/usr/bin/pamixer --decrease 5 && kill -36 $(pidof goblocks)", NULL };
+static const char *upvol[]   = { "sh", "-c", "/usr/bin/pamixer --increase 2 && kill -36 $(pidof goblocks)", NULL };
+static const char *downvol[] = { "sh", "-c", "/usr/bin/pamixer --decrease 2 && kill -36 $(pidof goblocks)", NULL };
 static const char *mutevol[] = { "sh", "-c", "/usr/bin/pamixer --toggle-mute && kill -36 $(pidof goblocks)", NULL };
 
 /* key definitions */
@@ -89,6 +90,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmen
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *browsercmd[]  = { "chromium", NULL };
 static const char *musiccmd[]  = { "st", "-t", "ncmpcpp", "-c", "Music", "-e", "ncmpcpp", NULL };
+static const char *screenshotcmd[]  = { "scrot", "-s", "-e", "xclip -selection clipboard -t image/png -i $f", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
@@ -99,6 +101,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,                 spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_b,                      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_m,                      spawn,          {.v = musiccmd } },
+	{ MODKEY|ShiftMask,             XK_s,                      spawn,          {.v = screenshotcmd } },
 	{ MODKEY,                       XK_b,                      togglebar,      {0} },
 	{ MODKEY,                       XK_j,                      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,                      focusstack,     {.i = -1 } },
