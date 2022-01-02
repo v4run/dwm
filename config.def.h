@@ -35,7 +35,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "ﳜ" };
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 1;	/* thickness / height of the underline */
@@ -49,10 +49,12 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Chromium",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "firefox",   NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Signal",    NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Slack",     NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Music",     NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "helvum",    NULL,       NULL,            0,       1,           -1 },
+	{ "mpv",       NULL,       NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
@@ -88,7 +90,7 @@ static const char *mutevol[] = { "sh", "-c", "/usr/bin/pamixer --toggle-mute && 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_dmenu_sel_bg, "-sf", col_dmenu_sel_fg, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
-static const char *browsercmd[]  = { "chromium", NULL };
+static const char *browsercmd[]  = { "firefox", NULL };
 static const char *musiccmd[]  = { "st", "-t", "ncmpcpp", "-c", "Music", "-e", "ncmpcpp", NULL };
 static const char *screenshotcmd[]  = { "scrot", "-s", "-e", "xclip -selection clipboard -t image/png -i $f", NULL };
 
@@ -130,11 +132,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_2,                                      1)
 	TAGKEYS(                        XK_3,                                      2)
 	TAGKEYS(                        XK_4,                                      3)
-	TAGKEYS(                        XK_5,                                      4)
+	/* TAGKEYS(                        XK_5,                                      4) */
 	/* TAGKEYS(                        XK_6,                                      5) */
-	/* TAGKEYS(                        XK_7,                                      6) */
-	/* TAGKEYS(                        XK_8,                                      7) */
-	/* TAGKEYS(                        XK_9,                                      8) */
+	/* TAGKEYS(                        XK_7,                                      4) */
+	TAGKEYS(                        XK_8,                                      4)
+	TAGKEYS(                        XK_9,                                      5)
 	{ MODKEY|ShiftMask,             XK_q,                      quit,           {0} },
 };
 
