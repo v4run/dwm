@@ -37,7 +37,7 @@ static const unsigned int alphas[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = {"", "", "", "", "", "ﳜ"};
+static const char *tags[] = {"", "", "", "", "", "", "ﳜ"};
 
 static const unsigned int ulinepad =
     5; /* horizontal padding between the underline and tag */
@@ -59,8 +59,9 @@ static const Rule rules[] = {
     {"Signal", NULL, NULL, 1 << 2, 0, -1},
     {"Slack", NULL, NULL, 1 << 2, 0, -1},
     {"Music", NULL, NULL, 1 << 3, 0, -1},
+    {"Steam", NULL, NULL, 1 << 4, 0, -1},
     {"helvum", NULL, NULL, 0, 1, -1},
-    {"mpv", NULL, NULL, 1 << 5, 0, -1},
+    {"mpv", NULL, NULL, 1 << 6, 0, -1},
 };
 
 /* layout(s) */
@@ -159,8 +160,8 @@ static Key keys[] = {
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
     /* TAGKEYS(                        XK_5, 4) */
     /* TAGKEYS(                        XK_6, 5) */
-    /* TAGKEYS(                        XK_7, 4) */
-    TAGKEYS(XK_8, 4) TAGKEYS(XK_9, 5){MODKEY | ShiftMask, XK_q, quit, {0}},
+    TAGKEYS(XK_7, 4) TAGKEYS(XK_8, 5)
+        TAGKEYS(XK_9, 6){MODKEY | ShiftMask, XK_q, quit, {0}},
 };
 
 /* button definitions */
