@@ -3,7 +3,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx = 0; /* border pixel of windows */
+static const unsigned int borderpx = 1; /* border pixel of windows */
 static const unsigned int gappx = 15;   /* gaps between windows */
 static const unsigned int snap = 1;     /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
@@ -15,8 +15,8 @@ static const char *fonts[] = {
 static const char dmenufont[] = "monospace:size=11";
 
 static const char col_norm_bg[] = "#040404";
-static const char col_norm_border[] = "#615756";
-static const char col_sel_border[] = "#88c0d0";
+static const char col_norm_border[] = "#212121";
+static const char col_sel_border[] = "#585858";
 static const char col_norm_fg[] = "#dce2c8";
 static const char col_sel_bg[] = "#040404";
 static const char col_sel_fg[] = "#ec4e20";
@@ -38,6 +38,9 @@ static const unsigned int alphas[][3] = {
 
 /* tagging */
 static const char *tags[] = {"", "", "", "", "", "", "ﳜ"};
+static const char *tagsalt[] = {"", "", "", "", "", "", ""};
+static const int momentaryalttags =
+    0; /* 1 means alttags will show only when key is held down*/
 
 static const unsigned int ulinepad =
     5; /* horizontal padding between the underline and tag */
@@ -54,6 +57,9 @@ static const Rule rules[] = {
      *	WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
+    /* {"", "", "", 0, 1, -1}, */
+    {"", "", "", 0, 1, -1},
+    {"st", NULL, NULL, 0, 0, -1},
     {"Chromium", NULL, NULL, 1 << 1, 0, -1},
     {"firefox", NULL, NULL, 1 << 1, 0, -1},
     {"Signal", NULL, NULL, 1 << 2, 0, -1},
@@ -61,7 +67,7 @@ static const Rule rules[] = {
     {"Music", NULL, NULL, 1 << 3, 0, -1},
     {"Steam", NULL, NULL, 1 << 4, 0, -1},
     {"helvum", NULL, NULL, 0, 1, -1},
-    {"mpv", NULL, NULL, 1 << 6, 0, -1},
+    {"mpv", NULL, NULL, 1 << 6, 1, -1},
 };
 
 /* layout(s) */
@@ -154,6 +160,7 @@ static Key keys[] = {
     {MODKEY, XK_period, focusmon, {.i = +1}},
     {MODKEY | ShiftMask, XK_comma, tagmon, {.i = -1}},
     {MODKEY | ShiftMask, XK_period, tagmon, {.i = +1}},
+    {MODKEY, XK_n, togglealttag, {0}},
     {MODKEY, XK_minus, setgaps, {.i = -1}},
     {MODKEY, XK_equal, setgaps, {.i = +1}},
     {MODKEY | ShiftMask, XK_equal, setgaps, {.i = 0}},
