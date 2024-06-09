@@ -1862,6 +1862,7 @@ void togglebar(const Arg *arg) {
         wc.y = selmon->mh - bh;
     }
     XConfigureWindow(dpy, systray->win, CWY, &wc);
+    updatesystray();
   }
   arrange(selmon);
 }
