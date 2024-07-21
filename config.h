@@ -17,15 +17,17 @@ static const int showbar = 1;     /* 0 means no bar */
 static const int topbar = 0;      /* 0 means bottom bar */
 static const char *fonts[] = {"monospace:size=10"};
 static const char dmenufont[] = "monospace:size=10";
-static const char col_gray1[] = "#000000";
+static const char col_gray1[] = "#32302f";
 static const char col_gray2[] = "#444444";
-static const char col_gray3[] = "#bbbbbb";
-static const char col_gray4[] = "#ffffff";
-static const char col_cyan[] = "#009f9b";
+static const char col_gray3[] = "#fbf1c7";
+static const char col_gray4[] = "#fe8019";
+static const char col_cyan[] = "#fe8019";
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
     [SchemeSel] = {col_gray1, col_cyan, col_cyan},
+    [SchemeTitle] = {col_gray2, col_gray1, col_gray1},
+    [SchemeSelTitle] = {col_gray4, col_gray1, col_gray1},
 };
 
 /* tagging */
@@ -75,7 +77,7 @@ static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
     "dmenu_run", "-m",      dmenumon, "-fn",    dmenufont, "-nb",     col_gray1,
-    "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
+    "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray1, NULL};
 static const char *termcmd[] = {"kitty", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 
