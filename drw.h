@@ -52,6 +52,7 @@ void drw_cur_free(Drw *drw, Cur *cursor);
 /* Drawing context manipulation */
 void drw_setfontset(Drw *drw, Fnt *set);
 void drw_setscheme(Drw *drw, Clr *scm);
+Clr *drw_getscheme(Drw *drw);
 
 /* Drawing functions */
 void drw_rect(Drw *drw, int x, int y, unsigned int w, unsigned int h,

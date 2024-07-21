@@ -201,6 +201,12 @@ void drw_setscheme(Drw *drw, Clr *scm) {
     drw->scheme = scm;
 }
 
+Clr *drw_getscheme(Drw *drw) {
+  if (drw)
+    return drw->scheme;
+  return NULL;
+}
+
 void drw_rect(Drw *drw, int x, int y, unsigned int w, unsigned int h,
               int filled, int invert) {
   if (!drw || !drw->scheme)

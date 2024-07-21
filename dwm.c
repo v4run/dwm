@@ -80,7 +80,8 @@ enum {
   SchemeNorm,
   SchemeSel,
   SchemeTitle,
-  SchemeSelTitle
+  SchemeSelTitle,
+  SchemeSeparator
 }; /* color schemes */
 enum {
   NetSupported,
@@ -809,10 +810,20 @@ Monitor *dirtomon(int dir) {
   return m;
 }
 
+int drw_sep(Drw *drw, int x, int w) {
+  Clr *current_scheme = drw_getscheme(drw);
+  drw_setscheme(drw, scheme[SchemeSeparator]);
+  drw_rect(drw, x, 0, w, bh, 1, 0);
+  drw_setscheme(drw, current_scheme);
+  x += w;
+  return x;
+}
+
 void drawbar(Monitor *m) {
   int x, w, tw = 0, stw = 0;
   int boxs = drw->fonts->h / 9;
   int boxw = drw->fonts->h / 6 + 2;
+  int sepw = drw->fonts->h / 10;
   unsigned int i, occ = 0, urg = 0;
   Client *c;
 
@@ -851,6 +862,7 @@ void drawbar(Monitor *m) {
   drw_setscheme(drw, scheme[SchemeNorm]);
   x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
+  x = drw_sep(drw, x, sepw);
   if ((w = m->ww - tw - stw - x) > bh) {
     if (m->sel) {
       drw_setscheme(drw, scheme[m == selmon ? SchemeSelTitle : SchemeTitle]);
