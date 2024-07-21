@@ -2059,6 +2059,8 @@ int updategeom(void) {
         m->my = m->wy = unique[i].y_org;
         m->mw = m->ww = unique[i].width;
         m->mh = m->wh = unique[i].height;
+        if (unique[i].height > unique[i].width)
+          m->nmaster = nmasterportrait;
         updatebarpos(m);
       }
     /* removed monitors if n > nn */
