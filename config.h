@@ -81,10 +81,13 @@ static char dmenumon[2] =
 static const char *dmenucmd[] = {
     "dmenu_run", "-m",  dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf",
     col_gray3,   "-sb", col_cyan, "-sf", col_gray1, "-i",  NULL};
-static const char *termcmd[] = {"kitty", NULL};
+static const char *termcmd[] = {"kitty", "-1", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 static const char *lockcmd[] = {"slock", NULL};
 static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
+static const char *poweroptionscmd[] = {
+    "dmenu_power", "-m",  dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf",
+    col_gray3,   "-sb", col_cyan, "-sf", col_gray1, "-i",  "-l", "4", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -93,6 +96,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_b, spawn, {.v = browsercmd}},
     {MODKEY | ShiftMask, XK_l, spawn, {.v = lockcmd}},
     {MODKEY | ShiftMask, XK_s, spawn, {.v = screenshotcmd}},
+    {MODKEY | ShiftMask, XK_o, spawn, {.v = poweroptionscmd}},
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_j, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
