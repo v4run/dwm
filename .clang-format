@@ -21,3 +21,4 @@ TabWidth: 4
 UseTab: AlignWithSpaces
 BreakArrays: true
 ColumnLimit: 100
+SortIncludes: Never
