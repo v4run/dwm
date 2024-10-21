@@ -21,11 +21,11 @@ static const int   showbar     = 1; /* 0 means no bar */
 static const int   topbar      = 1; /* 0 means bottom bar */
 static const char *fonts[]     = {"Iosevka:size=15"};
 static const char  dmenufont[] = "Iosevka:size=15";
-static const char  col_gray1[] = "#282828";
+static const char  col_gray1[] = "#040001";
 static const char  col_gray2[] = "#444444";
-static const char  col_gray3[] = "#fbf1c7";
+static const char  col_gray3[] = "#fffcfa";
 static const char  col_gray4[] = "#fe8019";
-static const char  col_cyan[]  = "#98971a";
+static const char  col_cyan[]  = "#9d65ff";
 
 static const char *colors[][3] = {
 	/*               fg         bg         border   */
