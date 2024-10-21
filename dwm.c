@@ -764,13 +764,20 @@ void drawbar(Monitor *m) {
 	int          sepw = drw->fonts->h / 10;
 	unsigned int i, occ = 0, urg = 0;
 	Client      *c;
+	Monitor     *cmp = selmon;
 
 	if (!m->showbar) return;
 
 	if (showsystray && m == systraytomon(m) && !systrayonleft) stw = getsystraywidth();
 
+	// If statusonmainmonitor is set, show status bar only on the first monitor
+	if (statusonmainmonitor) {
+		cmp = mons;
+	}
+
 	/* draw status first so it can be overdrawn by tags later */
-	if (m == selmon) { /* status is only drawn on selected monitor */
+	if (m == cmp) { /* status is only drawn on selected/main monitor depending upon
+		               statusonmainmonitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		tw = TEXTW(stext) - lrpad / 2 + 2; /* 2px extra right padding */
 		drw_text(drw, m->ww - tw - stw, 0, tw, bh, lrpad / 2 - 2, stext, 0);
@@ -1980,8 +1987,9 @@ void updatesizehints(Client *c) {
 }
 
 void updatestatus(void) {
+	Monitor *m;
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext))) strcpy(stext, "dwm-" VERSION);
-	drawbar(selmon);
+	for (m = mons; m; m = m->next) drawbar(m);
 	updatesystray();
 }
 
