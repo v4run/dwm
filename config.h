@@ -84,7 +84,7 @@ static char        dmenumon[2]       = "0"; /* component of dmenucmd, manipulate
 static const char *dmenucmd[]        = {"dmenu_run", "-m",  dmenumon,  "-fn", dmenufont, "-nb",
                                         col_gray1,   "-nf", col_gray3, "-sb", col_cyan,  "-sf",
                                         col_gray1,   "-i",  "-l",      "4",   NULL};
-static const char *termcmd[]         = {"kitty", "-1", NULL};
+static const char *termcmd[]         = {"wezterm", NULL};
 static const char *browsercmd[]      = {"firefox", NULL};
 static const char *lockcmd[]         = {"slock", NULL};
 static const char *screenshotcmd[]   = {"flameshot", "gui", NULL};
